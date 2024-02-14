@@ -5,7 +5,6 @@ export const notificationApi = apiSlice.injectEndpoints({
 		// get notifications
 		getNotifications: builder.query<any, void>({
 			query: () => '/admin/notifications',
-			providesTags: ['Notifications'],
 		}),
 
 		// update notification isRead true
@@ -14,7 +13,6 @@ export const notificationApi = apiSlice.injectEndpoints({
 				url: `/admin/notification/${id}`,
 				method: 'PUT',
 			}),
-			invalidatesTags: ['Notifications'],
 		}),
 	}),
 });

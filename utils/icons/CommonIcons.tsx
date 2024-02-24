@@ -1,5 +1,3 @@
-import { color } from 'framer-motion';
-
 interface Props {
 	h: number;
 	w: number;

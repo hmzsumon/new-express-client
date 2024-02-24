@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import {
-	Card,
-	Typography,
-	Button,
-	CardBody,
-	CardFooter,
-} from '@material-tailwind/react';
+
 import { NotFoundIcon } from '@/global/icons/CommonIcons';
 import { IoIosArrowDown } from 'react-icons/io';
 import ClockLoader from 'react-spinners/ClockLoader';
 import Withdraw from './Withdraw';
 import { formDate } from '@/utils/functions';
+import { Button } from 'flowbite-react';
 
 const headers = [
 	{
@@ -56,22 +51,20 @@ const WithdrawRecords = ({ records }: any) => {
 
 	return (
 		<div className='mx-auto '>
-			<Card className='w-full h-full bg-black_2'>
-				<CardBody className='px-4 rounded'>
+			<div className='w-full h-full bg-black_2'>
+				<div className='px-4 rounded'>
 					<div className='w-full min-w-max'>
 						<div className='bg-[#071832] rounded-t-md'>
 							<div className='grid grid-cols-4 list-none '>
 								{headers.map((head, index) => {
 									return (
 										<li key={head.id} className={`py-4  px-2 `}>
-											<Typography
-												variant='small'
-												color='blue-gray'
+											<p
 												className={`
                       ${head.class} font-semibold leading-none text-white opacity-70`}
 											>
 												{head.name}
-											</Typography>
+											</p>
 										</li>
 									);
 								})}
@@ -162,18 +155,13 @@ const WithdrawRecords = ({ records }: any) => {
 							<p className='text-white'>No records found.</p>
 						</div>
 					)}
-				</CardBody>
-				<CardFooter className='flex items-center justify-between p-4 border-t border-blue-gray-50'>
-					<Typography
-						variant='small'
-						color='blue-gray'
-						className='font-normal text-white'
-					>
+				</div>
+				<div className='flex items-center justify-between p-4 border-t border-blue-gray-50'>
+					<p color='blue-gray' className='font-normal text-white'>
 						Page {currentPage} of {Math.ceil(records?.length / 5)}
-					</Typography>
+					</p>
 					<div className='flex gap-2'>
 						<Button
-							variant='outlined'
 							color='blue-gray'
 							size='sm'
 							disabled={currentPage === 1}
@@ -182,7 +170,6 @@ const WithdrawRecords = ({ records }: any) => {
 							Previous
 						</Button>
 						<Button
-							variant='outlined'
 							color='blue-gray'
 							size='sm'
 							disabled={
@@ -194,8 +181,8 @@ const WithdrawRecords = ({ records }: any) => {
 							Next
 						</Button>
 					</div>
-				</CardFooter>
-			</Card>
+				</div>
+			</div>
 		</div>
 	);
 };

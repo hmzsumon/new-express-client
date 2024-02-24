@@ -47,7 +47,7 @@ const NftPackages = () => {
 							ONLY SIGNUP
 						</p>
 						<ul className='px-3 space-y-2 text-left uppercase list-disc list-inside '>
-							<li>UNKOCK MINING</li>
+							<li>UNLOCK MINING</li>
 							<li>24/7 EMAIL SUPPORT</li>
 						</ul>
 					</div>
@@ -68,13 +68,13 @@ const NftPackages = () => {
 								Basic
 							</h2>
 						</div>
-						<h2 className='mt-5 mb-3 text-4xl font-bold font-OutFit'>$11</h2>
+						<h2 className='mt-5 mb-3 text-4xl font-bold font-OutFit'>$12</h2>
 						<p className='text-[12px] mb-3 font-semibold uppercase'>
 							ONLY REGISTRATION
 						</p>
 						<ul className='px-3 space-y-2 text-left uppercase list-disc list-inside '>
 							<li>1 MONTH REGISTRATION</li>
-							<li>UNKOCK MINING</li>
+							<li>UNLOCK MINING</li>
 							<li>100 ELC TOKEN FREE</li>
 							<li>ALL EARNING UNLOCK</li>
 							<li>24/7 EMAIL SUPPORT</li>
@@ -97,14 +97,14 @@ const NftPackages = () => {
 								BUSINESS
 							</h2>
 						</div>
-						<h2 className='mt-5 mb-3 text-4xl font-bold font-OutFit'>$41</h2>
+						<h2 className='mt-5 mb-3 text-4xl font-bold font-OutFit'>$42</h2>
 						<p className='text-[12px] mb-3 font-semibold uppercase'>
 							REGISTRATION & 6 MONTH SUBSCRIPTION
 						</p>
 						<ul className='px-3 space-y-2 text-left uppercase list-disc list-inside '>
 							<li>7 MONTH SUBSCRIPTION</li>
-							<li>UNKOCK MINING</li>
-							<li>150 ELC TOKEN FREE</li>
+							<li>UNLOCK MINING</li>
+							<li>650 ELC TOKEN FREE</li>
 							<li>ALL EARNING UNLOCK</li>
 							<li>DAILY CASH BACK ($0.02 PER DAY)</li>
 							<li>24/7 EMAIL SUPPORT</li>
@@ -127,14 +127,14 @@ const NftPackages = () => {
 								PREMIUM
 							</h2>
 						</div>
-						<h2 className='mt-5 mb-3 text-4xl font-bold font-OutFit'>$71</h2>
+						<h2 className='mt-5 mb-3 text-4xl font-bold font-OutFit'>$72</h2>
 						<p className='text-[12px] mb-3 font-semibold uppercase'>
 							REGISTRATION & 12 MONTH SUBSCRIPTION
 						</p>
 						<ul className='px-3 space-y-2 text-left uppercase list-disc list-inside '>
 							<li>13 MONTH SUBSCRIPTION</li>
-							<li>UNKOCK MINING</li>
-							<li>250 ELC TOKEN FREE</li>
+							<li>UNLOCK MINING</li>
+							<li>1250 ELC TOKEN FREE</li>
 							<li>ALL EARNING UNLOCK</li>
 							<li>DAILY CASH BACK ($0.05 PER DAY)</li>
 							<li>24/7 EMAIL SUPPORT</li>

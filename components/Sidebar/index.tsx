@@ -10,7 +10,7 @@ import { GiReceiveMoney, GiWallet, GiPayMoney } from 'react-icons/gi';
 import { FaUsers } from 'react-icons/fa6';
 import { RiPresentationFill, RiBankLine } from 'react-icons/ri';
 import { MdOutlineSupportAgent } from 'react-icons/md';
-
+import { SlBadge } from 'react-icons/sl';
 interface SidebarProps {
 	sidebarOpen: boolean;
 	setSidebarOpen: (arg: boolean) => void;
@@ -120,9 +120,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 							<li>
 								<Link
 									href='/dashboard'
-									className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-										pathname.includes('dashboard') &&
-										'bg-graydark dark:bg-meta-4'
+									className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium duration-300 ease-in-out hover:bg-[#3730a3] ${
+										pathname.includes('dashboard') && 'bg-[#2563eb]'
 									}`}
 								>
 									<svg
@@ -158,8 +157,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 							<li>
 								<Link
 									href='/profile'
-									className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-										pathname.includes('profile') && 'bg-graydark dark:bg-meta-4'
+									className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium duration-300 ease-in-out hover:bg-[#3730a3] ${
+										pathname.includes('profile') && 'bg-[#2563eb]'
 									}`}
 								>
 									<svg
@@ -186,9 +185,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 							{/* <!-- Menu Item Subscription --> */}
 							<li>
 								<Link
-									href='/profile'
-									className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-										pathname.includes('profile') && 'bg-graydark dark:bg-meta-4'
+									href='/subscription'
+									className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium duration-300 ease-in-out hover:bg-[#3730a3] ${
+										pathname.includes('subscription') && 'bg-[#2563eb]'
 									}`}
 								>
 									<GiPayMoney />
@@ -200,7 +199,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 							{/* <!-- Menu Item Fund --> */}
 							<SidebarLinkGroup
 								activeCondition={
-									pathname === '/forms' || pathname.includes('forms')
+									pathname === '/fund' || pathname.includes('fund')
 								}
 							>
 								{(handleClick, open) => {
@@ -208,10 +207,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 										<React.Fragment>
 											<Link
 												href='#'
-												className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-													(pathname === '/wallet' ||
-														pathname.includes('wallet')) &&
-													'bg-graydark dark:bg-meta-4'
+												className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium duration-300 ease-in-out hover:bg-[#3730a3]  ${
+													(pathname === '/fund' || pathname.includes('fund')) &&
+													'bg-[#2563eb] '
 												}`}
 												onClick={(e) => {
 													e.preventDefault();
@@ -250,9 +248,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 												<ul className='mt-4 mb-5.5 flex flex-col gap-2.5 pl-6'>
 													<li>
 														<Link
-															href='/wallet/my-wallet'
-															className={`first-letter:group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
-																pathname === '/wallet/my-wallet' && 'text-white'
+															href='/fund/deposit'
+															className={`first-letter:group relative flex items-center gap-2.5 rounded-md px-4 font-medium  duration-300 ease-in-out hover:text-[#6366f1] ${
+																pathname === '/fund/deposit' && 'text-[#2563eb]'
 															}`}
 														>
 															Deposit
@@ -260,10 +258,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 													</li>
 													<li>
 														<Link
-															href='/wallet/transactions'
-															className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
-																pathname === '/wallet/transactions' &&
-																'text-white'
+															href='/fund/withdraw'
+															className={`first-letter:group relative flex items-center gap-2.5 rounded-md px-4 font-medium  duration-300 ease-in-out hover:text-[#6366f1] ${
+																pathname === '/fund/withdraw' &&
+																'text-[#2563eb]'
 															}`}
 														>
 															Withdraw
@@ -592,6 +590,21 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 							</SidebarLinkGroup>
 							{/* <!--End Menu Item Team--> */}
 
+							{/* <!--Start Menu Item Rank --> */}
+							<li>
+								<Link
+									href='/rank-incentive'
+									className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+										pathname.includes('rank-incentive') &&
+										'bg-graydark dark:bg-meta-4'
+									}`}
+								>
+									<SlBadge />
+									Rank & Incentive
+								</Link>
+							</li>
+							{/* <!--End Menu Item Rank --> */}
+
 							{/* <!-- Menu Item Settings --> */}
 							<li>
 								<Link
@@ -652,7 +665,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 							{/* <!-- Menu Item Support --> */}
 							<li>
 								<Link
-									href='/chart'
+									href='/support'
 									className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
 										pathname.includes('chart') && 'bg-graydark dark:bg-meta-4'
 									}`}

@@ -71,7 +71,7 @@ const DropdownUser = () => {
 				href='#'
 			>
 				<span className='hidden text-right lg:block'>
-					<span className='block text-sm font-medium text-black dark:text-white'>
+					<span className='block text-sm font-medium text-white'>
 						{user?.username}
 					</span>
 				</span>
@@ -117,11 +117,11 @@ const DropdownUser = () => {
 						{user?.first_name} {user?.last_name}
 					</li>
 					<li>
-						<span className='text-primary'>{user?.email}</span>
+						<span>{user?.email}</span>
 					</li>
 					<li>
 						<span className='flex  gap-1.5 list-disc'>
-							<span className='text-primary'>{user?.username}</span>
+							<span>{user?.username}</span>
 							<CopyToClipboard text={user?.username} />
 						</span>
 					</li>

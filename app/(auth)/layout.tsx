@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Sidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
+import Footer from '../components/Shared/Footer/Footer';
 
 const AuthLayout = ({ children }: any) => {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -21,7 +22,9 @@ const AuthLayout = ({ children }: any) => {
 						{children}
 					</div>
 				</main>
+
 				{/* <!-- ===== Main Content End ===== --> */}
+				<Footer></Footer>
 			</div>
 		</div>
 	);

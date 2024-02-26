@@ -14,12 +14,12 @@ const MetaverseSystem = () => {
 		Aos.init({ duration: 1000 });
 	}, []);
 	return (
-		<div className='container grid grid-cols-1 gap-5 py-32 mx-auto md:grid-cols-4'>
+		<div className='container grid grid-cols-1 gap-5 py-24 mx-auto md:grid-cols-4'>
 			<div>
 				<Image src={butterflyImg} alt='btttt' />
 			</div>
 			<div className='col-span-3 p-5 text-white'>
-				<h2 data-aos='flip-up' className='py-2 text-3xl font-bold font-OutFit'>
+				<h2 data-aos='flip-up' className='py-2 text-2xl font-bold font-OutFit'>
 					Empowering Dreams Globally: Express Life's Commitment
 				</h2>
 				<p data-aos='flip-up' className='pb-4'>
@@ -28,12 +28,16 @@ const MetaverseSystem = () => {
 					opportunities. Join a vibrant community and unlock financial success
 					on your terms. Seize the future with Express Life!"
 				</p>
-				<div className='grid grid-cols-1 lg:grid-cols-2 gap-y-2'>
-					<a data-aos='fade-up' href='#' className='flex items-center'>
-						<button className='px-10 py-4 text-6xl btn__bg rounded-s-md'>
+				<div className='grid grid-cols-1 lg:grid-cols-2 gap-2'>
+					<a
+						data-aos='fade-up'
+						href='#'
+						className='flex flex-col  items-center'
+					>
+						<button className='px-10 py-4 w-full text-6xl btn__bg rounded-t-md'>
 							<TbWorldStar />
 						</button>
-						<div className='border-r border-b border-t border-[#ffffff32] h-full w-full rounded-e-md px-3 py-1'>
+						<div className='border-r border-b border-t border-[#ffffff32] h-full w-full rounded-b-md px-3 py-1'>
 							<h3 className='text-xl font-extrabold text-white font-OutFit'>
 								Diverse Income Streams
 							</h3>
@@ -44,11 +48,11 @@ const MetaverseSystem = () => {
 						</div>
 					</a>
 
-					<a data-aos='fade-up' href='#' className='flex items-center'>
-						<button className='px-10 py-4 text-6xl btn__bg rounded-s-md'>
+					<a data-aos='fade-up' href='#' className='flex flex-col items-center'>
+						<button className='px-10 py-4 w-full text-6xl btn__bg rounded-t-md'>
 							<GiRetroController />
 						</button>
-						<div className='border-r border-b border-t border-[#ffffff32] h-full w-full rounded-e-md px-3 py-1'>
+						<div className='border-r border-b border-t border-[#ffffff32] h-full w-full rounded-b-md px-3 py-1'>
 							<h3 className='text-xl font-extrabold text-white font-OutFit'>
 								Low Entry Cost
 							</h3>
@@ -60,11 +64,11 @@ const MetaverseSystem = () => {
 						</div>
 					</a>
 
-					<a data-aos='fade-up' href='#' className='flex items-center'>
-						<button className='px-10 py-4 text-6xl btn__bg rounded-s-md'>
+					<a data-aos='fade-up' href='#' className='flex flex-col items-center'>
+						<button className='px-10 py-4 text-6xl btn__bg w-full rounded-t-md'>
 							<TbWorldStar />
 						</button>
-						<div className='border-r border-b border-t border-[#ffffff32] h-full w-full rounded-e-md px-3 py-1'>
+						<div className='border-r border-b border-t border-[#ffffff32] h-full w-full rounded-b-md px-3 py-1'>
 							<h3 className='text-xl font-extrabold text-white font-OutFit'>
 								Recognition and Rewards
 							</h3>
@@ -75,11 +79,11 @@ const MetaverseSystem = () => {
 							</p>
 						</div>
 					</a>
-					<a data-aos='fade-up' href='#' className='flex items-center'>
-						<button className='px-10 py-4 text-6xl btn__bg rounded-s-md'>
+					<a data-aos='fade-up' href='#' className='flex flex-col items-center'>
+						<button className='px-10 py-4 text-6xl btn__bg w-full rounded-t-md'>
 							<TbWorldStar />
 						</button>
-						<div className='border-r border-b border-t border-[#ffffff32] h-full w-full rounded-e-md px-3 py-1'>
+						<div className='border-r border-b border-t border-[#ffffff32] h-full w-full rounded-b-md px-3 py-1'>
 							<h3 className='text-xl font-extrabold text-white font-OutFit'>
 								Flexibility
 							</h3>

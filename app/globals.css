@@ -30,6 +30,7 @@ body {
 
 .rotate__animate {
 	animation: animName 30s linear infinite !important;
+	-webkit-animation: animName 30s linear infinite !important;
 }
 
 .nav__link {

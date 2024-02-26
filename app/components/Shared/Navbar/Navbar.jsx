@@ -16,7 +16,7 @@ import Link from 'next/link';
 const Navbar = () => {
 	return (
 		<div>
-			<div className='container justify-between mx-auto navbar header__bg'>
+			<div className='justify-between mx-auto navbar header__bg'>
 				<div className=''>
 					<Link href='/' className='flex items-center gap-2 w-75 bordered'>
 						<Image className='w-24' src={Logo} alt='' />

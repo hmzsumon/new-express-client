@@ -5,7 +5,7 @@ import BannerImg from '@/public/assets/Express Life uk new logo file 01 1.png';
 import Image from 'next/image';
 const Banner = () => {
 	return (
-		<div className='flex items-center w-full py-32 overflow-x-hidden bg-center bg-no-repeat bg-cover md:py-32 bg'>
+		<div className='flex items-center w-full py-24 overflow-x-hidden md:py-32 bg'>
 			<div className='container mx-auto'>
 				<Image
 					className='absolute md:top-20 w-[300px] lg:w-[270px] md:w-[100px] 2xl:w-auto left-0 top-0 md:left-10 lg:left-0 2xl:left-[80px] worth rotate__animate'
@@ -15,7 +15,7 @@ const Banner = () => {
 
 				<div className='grid items-center banner__info sm:flex-row-reverse md:grid-cols-2'>
 					<div className='mt-0 p-sm md:mt-28 2xl:mt-56'>
-						<h1 className='mb-3 space-y-2 text-5xl font-semibold text-white font-OutFit'>
+						<h1 className='mb-3 space-y-2 text-2xl font-semibold text-white font-OutFit'>
 							EXPRESS LIFE <br /> RELIABLE MINING PLATFORM
 						</h1>
 						<p className='text-white font-OutFit'>

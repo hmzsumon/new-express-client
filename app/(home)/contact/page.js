@@ -6,9 +6,6 @@ import ContactFristCompo from '@/app/components/ContactPage/ContactFristCompo';
 const Contact = () => {
 	return (
 		<div className='custom__BG'>
-			<div className='fixed top-0 right-0 left-0 z-[1000] w-full header'>
-				<Navbar />
-			</div>
 			<ContactBanner />
 			<ContactFristCompo />
 			<div className='py-20'>
@@ -23,7 +20,6 @@ const Contact = () => {
 					referrerpolicy='no-referrer-when-downgrade'
 				></iframe>
 			</div>
-			<Footer />
 		</div>
 	);
 };

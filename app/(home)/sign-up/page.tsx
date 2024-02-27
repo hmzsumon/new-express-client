@@ -6,14 +6,13 @@ import SignUpPage from '../../components/Signup/SignUpPage';
 const SignUp = () => {
 	return (
 		<div className='custom__BG'>
-			<div className='fixed top-0 right-0 left-0 z-[1000] w-full header'>
+			{/* <div className='fixed top-0 right-0 left-0 z-[1000] w-full header'>
 				<Navbar />
-			</div>
+			</div> */}
 			<div className=' z-[-100]'>
 				<SignUpBanner />
 				<SignUpPage />
 			</div>
-			<Footer />
 		</div>
 	);
 };

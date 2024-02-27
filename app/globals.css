@@ -195,6 +195,7 @@ body {
 
 .flip__animate {
 	animation: mirrorflip 20s 0s linear infinite;
+	-webkit-animation: mirrorflip 20s 0s linear infinite;
 }
 
 @keyframes animName {

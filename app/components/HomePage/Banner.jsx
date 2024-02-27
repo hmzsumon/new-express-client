@@ -5,10 +5,10 @@ import BannerImg from '@/public/assets/Express Life uk new logo file 01 1.png';
 import Image from 'next/image';
 const Banner = () => {
 	return (
-		<div className='flex items-center w-full py-24 overflow-x-hidden md:py-32 bg'>
+		<div className='flex items-center w-full py-24 overflow-x-hidden md:py-32 '>
 			<div className='container mx-auto'>
 				<Image
-					className='absolute md:top-20 w-[300px] lg:w-[270px] md:w-[100px] 2xl:w-auto left-0 top-0 md:left-10 lg:left-0 2xl:left-[80px] worth rotate__animate'
+					className=' hidden md:block absolute md:top-20 w-[300px] lg:w-[270px] md:w-[100px] 2xl:w-auto left-0 top-0 md:left-10 lg:left-0 2xl:left-[80px] worth rotate__animate'
 					src={worldImg}
 					alt=''
 				/>

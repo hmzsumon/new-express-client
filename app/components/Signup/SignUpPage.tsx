@@ -16,6 +16,8 @@ import {
 } from '@/redux/features/auth/authApi';
 import countries from './countries';
 import { fetchBaseQueryError } from '@/redux/services/helpers';
+import { addEmail } from '@/redux/signupDataSlice';
+import { useDispatch } from 'react-redux';
 
 type Country = {
 	code: string;
@@ -26,6 +28,8 @@ const SignUpPage = () => {
 	useEffect(() => {
 		Aos.init({ duration: 1000 });
 	}, []);
+
+	const dispatch = useDispatch();
 
 	const router = useRouter();
 	const referralId = '169782172011';
@@ -231,10 +235,8 @@ const SignUpPage = () => {
 			toast.success(
 				'Registration successful. Please check your email for verification'
 			);
-			router.push({
-				pathname: '/email-verify',
-				query: { email: email },
-			} as any);
+			dispatch(addEmail(email));
+			router.push('/email-verify');
 		}
 	}, [isSuccess, isError]);
 

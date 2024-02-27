@@ -3,7 +3,7 @@ import React, { use, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { PulseLoader } from 'react-spinners';
 import {
 	useLoginUserMutation,
@@ -11,7 +11,7 @@ import {
 } from '@/redux/features/auth/authApi';
 import { fetchBaseQueryError } from '@/redux/services/helpers';
 
-const LoginPage = () => {
+const LoginPage = (props: any) => {
 	const referId = process.env.NEXT_PUBLIC_DEFAULT_REFER_ID;
 	const [loginUser, { data, isSuccess, isLoading, isError, error }] =
 		useLoginUserMutation();
@@ -26,6 +26,10 @@ const LoginPage = () => {
 		},
 	] = useResendVerificationEmailMutation();
 	const router = useRouter();
+	const params = useSearchParams();
+
+	console.log('Router: ', params);
+
 	const [isChecked, setIsChecked] = useState<boolean>(false);
 	const [checkedError, setCheckedError] = useState<boolean>(false);
 	const [email, setEmail] = useState<string>('');

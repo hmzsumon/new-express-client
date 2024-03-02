@@ -50,7 +50,6 @@ const MyTeam = () => {
 		user?._id
 	);
 	const { team } = data || {};
-	const { users } = data || [];
 
 	const records = [
 		{
@@ -269,7 +268,6 @@ const MyTeam = () => {
 				level: record.level,
 				amount: record.amount,
 				activeUsers: record.activeUsers,
-				balance: user.m_balance,
 				j_earn: record.j_earn,
 				s_earn: record.s_earn,
 				pull_earn: record.pull_earn,

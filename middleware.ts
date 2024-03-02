@@ -37,5 +37,8 @@ export const config = {
 		'/deposit/[depositId]',
 		'/withdraw/[withdrawId]',
 		'/deposit/deposit-methods',
+		'/withdraw/withdraw-methods',
+		'/team/my-team',
+		'/profile',
 	],
 };

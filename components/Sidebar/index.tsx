@@ -185,7 +185,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 							{/* <!-- Menu Item Subscription --> */}
 							<li>
 								<Link
-									href='/subscription'
+									href={
+										!user?.is_activation_done ? '/activation' : '/subscription'
+									}
 									className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium duration-300 ease-in-out hover:bg-[#3730a3] ${
 										pathname.includes('subscription') && 'bg-[#2563eb]'
 									}`}
@@ -560,13 +562,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 													</li>
 													<li>
 														<Link
-															href='/wallet/transactions'
+															href='/team/my-team'
 															className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
-																pathname === '/wallet/transactions' &&
-																'text-white'
+																pathname === '/team/my-team' && 'text-white'
 															}`}
 														>
-															Team
+															My Team
 														</Link>
 													</li>
 

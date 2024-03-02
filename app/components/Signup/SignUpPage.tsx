@@ -9,7 +9,7 @@ import Link from 'next/link';
 import PhoneInput from 'react-phone-input-2';
 import PulseLoader from 'react-spinners/PulseLoader';
 import CountrySelect from './CountrySelect';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import {
 	useRegisterUserMutation,
 	useResendVerificationEmailMutation,
@@ -32,8 +32,10 @@ const SignUpPage = () => {
 	const dispatch = useDispatch();
 
 	const router = useRouter();
-	const referralId = '169782172011';
-
+	const searchParams = useSearchParams();
+	const searchId = searchParams.get('referral_id');
+	const defaultId = '169782172011';
+	const referralId = searchId ? searchId : defaultId;
 	const [registerUser, { isLoading, isSuccess, isError, error }] =
 		useRegisterUserMutation();
 

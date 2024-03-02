@@ -21,22 +21,22 @@ const Header = (props: {
 							e.stopPropagation();
 							props.setSidebarOpen(!props.sidebarOpen);
 						}}
-						className='z-99999 block rounded-sm border border-stroke bg-[#24303F] p-1.5 shadow-sm dark:border-strokedark dark:bg-boxdark lg:hidden'
+						className='z-99999 block rounded-sm border  bg-[#24303F] p-1.5 shadow-sm   lg:hidden'
 					>
 						<span className='relative block h-6 w-6 cursor-pointer'>
 							<span className='du-block absolute right-0 h-full w-full'>
 								<span
-									className={`relative left-0 top-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-[0] duration-200 ease-in-out dark:bg-white ${
+									className={`relative left-0 top-0 my-1 block h-0.5 w-0 rounded-sm bg-white delay-[0] duration-200 ease-in-out dark:bg-white ${
 										!props.sidebarOpen && '!w-full delay-300'
 									}`}
 								></span>
 								<span
-									className={`relative left-0 top-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-150 duration-200 ease-in-out dark:bg-white ${
+									className={`relative left-0 top-0 my-1 block h-0.5 w-0 rounded-sm bg-white delay-150 duration-200 ease-in-out dark:bg-white ${
 										!props.sidebarOpen && 'delay-400 !w-full'
 									}`}
 								></span>
 								<span
-									className={`relative left-0 top-0 my-1 block h-0.5 w-0 rounded-sm bg-black delay-200 duration-200 ease-in-out dark:bg-white ${
+									className={`relative left-0 top-0 my-1 block h-0.5 w-0 rounded-sm bg-white delay-200 duration-200 ease-in-out dark:bg-white ${
 										!props.sidebarOpen && '!w-full delay-500'
 									}`}
 								></span>

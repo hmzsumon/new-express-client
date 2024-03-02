@@ -1,11 +1,22 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
 import Footer from '../components/Shared/Footer/Footer';
+import { Button, Modal } from 'flowbite-react';
+import { useSelector } from 'react-redux';
 
 const AuthLayout = ({ children }: any) => {
+	const { user } = useSelector((state: any) => state.auth);
 	const [sidebarOpen, setSidebarOpen] = useState(false);
+	const [openModal, setOpenModal] = useState(false);
+
+	// for modal
+	useEffect(() => {
+		if (!user?.is_activation_done || !user?.is_subscribe_done) {
+			setOpenModal(true);
+		}
+	}, []);
 	return (
 		<div className='flex h-screen overflow-hidden'>
 			{/* <!-- ===== Sidebar Start ===== --> */}
@@ -26,6 +37,49 @@ const AuthLayout = ({ children }: any) => {
 				{/* <!-- ===== Main Content End ===== --> */}
 				<Footer></Footer>
 			</div>
+			{/* AStart Model */}
+			<>
+				<Modal
+					show={openModal}
+					onClose={() => setOpenModal(false)}
+					position={'center'}
+					className='mt-24 '
+				>
+					<Modal.Header>
+						{!user?.is_activation_done && <span>Activate your account</span>}
+						{!user?.is_subscribe_done && <span>Subscribe to a plan</span>}
+					</Modal.Header>
+					<Modal.Body
+						className='flex flex-col items-center justify-center text-black'
+						style={{ padding: '2rem' }}
+					>
+						{!user?.is_activation_done && (
+							<p>
+								You need to activate your account to access the full features of
+								the app. Please check your email and click on the activation
+								link
+							</p>
+						)}
+						{!user?.is_subscribe_done && (
+							<p>
+								You need to subscribe to a plan to access the full features of
+								the app. Please check the plans and choose one that suits you
+							</p>
+						)}
+					</Modal.Body>
+					<Modal.Footer>
+						{!user?.is_activation_done ? (
+							<Button onClick={() => setOpenModal(false)} className='mr-4'>
+								Active
+							</Button>
+						) : (
+							<Button color='primary' onClick={() => setOpenModal(false)}>
+								Subscription
+							</Button>
+						)}
+					</Modal.Footer>
+				</Modal>
+			</>
 		</div>
 	);
 };

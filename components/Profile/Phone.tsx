@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 const PhoneNumber = () => {
 	const { user } = useSelector((state: any) => state.auth);
 	return (
-		<div className='card card-compact w-full bg-base-100 shadow-xl'>
+		<div className='card card-compact w-full bg-[#0f172a] shadow-xl'>
 			<div className='card-body '>
 				<div className='flex items-center justify-between'>
 					<h2 className='card-title'>Phone Number</h2>

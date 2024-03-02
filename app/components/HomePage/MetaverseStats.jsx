@@ -83,7 +83,8 @@ const MetaverseStats = () => {
 					data-aos='fade-up'
 					className='px-10 py-5 mt-4 rounded btn__bg font-OutFit '
 				>
-					Buy Land Immediately <LuMoveRight />
+					Join Us Immediately
+					<LuMoveRight />
 				</button>
 			</div>
 			<div>

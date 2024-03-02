@@ -13,7 +13,7 @@ const NameAndEmail = () => {
 					<FaUserEdit className=' text-2xl' />
 				</div>
 				<hr />
-				<div className=' px-10'>
+				<div className=' px-2 md:px-10'>
 					<div className=' flex items-center justify-between'>
 						<h3 className='text-lg font-semibold'>Name</h3>
 						<div className=' '>

@@ -13,9 +13,9 @@ const PhoneNumber = () => {
 					<FaUserEdit className=' text-2xl' />
 				</div>
 				<hr />
-				<div className=' px-10'>
+				<div className=' px-2 md:px-10'>
 					<div className=' flex items-center justify-between'>
-						<h3 className='text-lg font-semibold'>Primary Phone Number</h3>
+						<h3 className='text-sm font-semibold'>Primary Phone Number</h3>
 						<div className=' '>
 							<p className='text-left'>+{user?.phone}</p>
 						</div>

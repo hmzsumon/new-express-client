@@ -4,7 +4,7 @@ import React from 'react';
 const Activation = () => {
 	return (
 		<div>
-			<Packages />
+			<Packages purpose='a' />
 		</div>
 	);
 };

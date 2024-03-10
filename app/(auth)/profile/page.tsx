@@ -1,5 +1,4 @@
 'use client';
-
 import Address from '@/components/Profile/Address';
 import NameAndEmail from '@/components/Profile/NameAndEmail';
 import PhoneNumber from '@/components/Profile/Phone';

@@ -1,9 +1,10 @@
+import Packages from '@/components/Packages/Packages';
 import React from 'react';
 
 const Subscription = () => {
 	return (
 		<div>
-			<h1>Subscribe to a plan</h1>
+			<Packages purpose='s' />
 		</div>
 	);
 };

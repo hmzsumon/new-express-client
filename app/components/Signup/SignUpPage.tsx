@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import Image from 'next/image';
+
 import Link from 'next/link';
 import PhoneInput from 'react-phone-input-2';
 import PulseLoader from 'react-spinners/PulseLoader';

@@ -8,7 +8,7 @@ const Footer = () => {
 			<img className='w-32 mx-auto' src={Logo} alt='' />
 			<div className='items-center flex-none gap-4 my-5 md:flex'>
 				<div className='w-full h-[1px] bg-slate-300'></div>
-				<div className='flex flex-wrap items-center justify-center gap-4 md:flex-nowrap'>
+				<div className='flex flex-wrap text-xs font-bold items-center justify-center gap-6 md:flex-nowrap my-2'>
 					<Link
 						href={`/aboutUs`}
 						className='text-white nav__link text-nowrap font-OutFit'
@@ -59,7 +59,7 @@ const Footer = () => {
 					<FaInstagram />
 				</a>
 			</div>
-			<p className='text-center font-OutFit '>
+			<p className='text-center text-xs font-bold  font-OutFit '>
 				Copyright © 2024{' '}
 				<Link href='/' className='text-white nav__link text-nowrap font-OutFit'>
 					Express Life.

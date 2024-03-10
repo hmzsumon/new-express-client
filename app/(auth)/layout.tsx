@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '../components/Shared/Footer/Footer';
 import { Button, Modal } from 'flowbite-react';
 import { useSelector } from 'react-redux';
+import Link from 'next/link';
 
 const AuthLayout = ({ children }: any) => {
 	const { user } = useSelector((state: any) => state.auth);
@@ -69,13 +70,17 @@ const AuthLayout = ({ children }: any) => {
 					</Modal.Body>
 					<Modal.Footer>
 						{!user?.is_activation_done ? (
-							<Button onClick={() => setOpenModal(false)} className='mr-4'>
-								Active
-							</Button>
+							<Link href='/activation'>
+								<Button onClick={() => setOpenModal(false)} className='mr-4'>
+									Active
+								</Button>
+							</Link>
 						) : (
-							<Button color='primary' onClick={() => setOpenModal(false)}>
-								Subscription
-							</Button>
+							<Link href='/subscription'>
+								<Button onClick={() => setOpenModal(false)}>
+									Subscription
+								</Button>
+							</Link>
 						)}
 					</Modal.Footer>
 				</Modal>

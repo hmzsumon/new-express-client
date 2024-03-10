@@ -203,9 +203,10 @@ export const authApi = apiSlice.injectEndpoints({
 
 		// activate user
 		activateUser: builder.mutation<IUser, any>({
-			query: () => ({
+			query: (body) => ({
 				url: '/activate-user',
 				method: 'PUT',
+				body,
 			}),
 			invalidatesTags: ['User'],
 		}),
@@ -239,9 +240,10 @@ export const authApi = apiSlice.injectEndpoints({
 
 		// reactivation user
 		reactivationUser: builder.mutation<any, any>({
-			query: () => ({
+			query: (body) => ({
 				url: `/reactivate-user`,
 				method: 'PUT',
+				body,
 			}),
 			invalidatesTags: ['User'],
 		}),

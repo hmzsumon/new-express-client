@@ -50,6 +50,8 @@ const MyTeam = () => {
 		user?._id
 	);
 	const { team } = data || {};
+	const { teamLevels } = data || [];
+	console.log('team', teamLevels);
 
 	const records = [
 		{
@@ -169,12 +171,12 @@ const MyTeam = () => {
 		},
 
 		{
-			field: 'amount',
+			field: 'users',
 			headerName: 'Users',
 			width: 150,
 			renderCell: (params: any) => (
 				<div className='flex items-center gap-2 text-xs'>
-					<p>{params.row.amount}</p>
+					<p>{params.row.users}</p>
 					<TbUsersGroup />
 				</div>
 			),
@@ -186,7 +188,7 @@ const MyTeam = () => {
 			width: 150,
 			renderCell: (params: any) => (
 				<div className='flex items-center gap-2 text-xs'>
-					<p>{params.row.amount}</p>
+					<p>{params.row.activeUsers}</p>
 					<TbUsersGroup />
 				</div>
 			),
@@ -261,17 +263,17 @@ const MyTeam = () => {
 
 	const rows: any = [];
 
-	records &&
-		records.map((record: any) => {
+	teamLevels &&
+		teamLevels.map((record: any) => {
 			return rows.push({
 				id: record.id,
 				level: record.level,
-				amount: record.amount,
-				activeUsers: record.activeUsers,
-				j_earn: record.j_earn,
-				s_earn: record.s_earn,
-				pull_earn: record.pull_earn,
-				totalEarning: record.j_earn + record.s_earn + record.pull_earn,
+				users: record.usersLength,
+				activeUsers: record.activeMembers,
+				j_earn: record.j_earning,
+				s_earn: record.s_earning,
+				p_earn: record.p_earning,
+				totalEarning: record.j_earning + record.s_earning + record.p_earning,
 			});
 		});
 	return (

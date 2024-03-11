@@ -130,6 +130,13 @@ const DropdownUser = () => {
 							user?.active_date ? user?.active_date : user?.createdAt
 						)}
 					</li>
+					<li>
+						{user?.is_active ? (
+							<span className='text-green-500'>Active</span>
+						) : (
+							<span className='text-red-500'>Not Active</span>
+						)}
+					</li>
 				</ul>
 				<button
 					className='flex items-center gap-3.5 py-4 px-6 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base'

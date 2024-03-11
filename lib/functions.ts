@@ -1,6 +1,6 @@
 // formDate function
 export const formatDate = (dt: Date): string => {
-	return new Date(dt).toUTCString().substring(0, 16);
+	return new Date(dt).toUTCString().substring(4, 16);
 };
 
 // formDate with time

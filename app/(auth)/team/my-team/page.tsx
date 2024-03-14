@@ -49,9 +49,9 @@ const MyTeam = () => {
 	const { data, isLoading, isSuccess, isError, error } = useGetMyTeamQuery(
 		user?._id
 	);
-	const { team } = data || {};
+
 	const { teamLevels } = data || [];
-	console.log('team', teamLevels);
+	// console.log('team', teamLevels);
 
 	const [filterModel, setFilterModel] = React.useState<GridFilterModel>({
 		items: [],

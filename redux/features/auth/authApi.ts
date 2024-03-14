@@ -247,6 +247,11 @@ export const authApi = apiSlice.injectEndpoints({
 			}),
 			invalidatesTags: ['User'],
 		}),
+
+		// get my team_01
+		getMyTeam01: builder.query<any, any>({
+			query: () => `/my_team_1`,
+		}),
 	}),
 });
 
@@ -276,4 +281,5 @@ export const {
 	useGetUserDemoCountQuery,
 	useClaimRankBonusMutation,
 	useReactivationUserMutation,
+	useGetMyTeam01Query,
 } = authApi;

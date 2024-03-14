@@ -352,10 +352,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 													</li>
 													<li>
 														<Link
-															href='/edit-wallet/deduct-money'
+															href='/wallet/transfer'
 															className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
-																pathname === '/edit-wallet/deduct-money' &&
-																'text-white'
+																pathname === '/wallet/transfer' && 'text-white'
 															}`}
 														>
 															Wallet Transfer
@@ -376,9 +375,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
 													<li>
 														<Link
-															href='/edit-wallet/deduct-money'
+															href='/wallet/wallet-report'
 															className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
-																pathname === '/edit-wallet/deduct-money' &&
+																pathname === '/wallet/wallet-report' &&
 																'text-white'
 															}`}
 														>

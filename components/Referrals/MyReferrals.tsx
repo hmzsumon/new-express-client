@@ -6,7 +6,10 @@ import { SyncLoader } from 'react-spinners';
 import { formDateWithTime } from '@/utils/functions';
 import { User2Icon } from '@/utils/icons/SecurityIcons';
 import FriendsList from './FriendsList';
-import { useGetMyTeamQuery } from '@/redux/features/auth/authApi';
+import {
+	useGetMyTeam01Query,
+	useGetMyTeamQuery,
+} from '@/redux/features/auth/authApi';
 
 type memberType = {
 	_id: string;
@@ -21,10 +24,9 @@ type memberType = {
 
 const MyReferrals = () => {
 	const { user } = useSelector((state: any) => state.auth);
-	const { data, isLoading, isError, isSuccess, error } = useGetMyTeamQuery(
-		user?._id
-	);
-	const { team } = data || {};
+	const { data, isLoading, isError, isSuccess, error } =
+		useGetMyTeam01Query(undefined);
+	const { users } = data || {};
 	return (
 		<>
 			{isLoading ? (
@@ -39,7 +41,7 @@ const MyReferrals = () => {
 					</div>
 
 					<div className='overflow-x-auto shadow-md sm:rounded-lg'>
-						<FriendsList team={team} />
+						<FriendsList users={users} />
 					</div>
 				</>
 			)}

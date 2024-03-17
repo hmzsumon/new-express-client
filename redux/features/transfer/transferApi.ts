@@ -11,7 +11,17 @@ export const transferApi = apiSlice.injectEndpoints({
 			}),
 			invalidatesTags: ['User'],
 		}),
+
+		// wallet transfer
+		walletTransfer: builder.mutation<any, any>({
+			query: (body) => ({
+				url: '/wallet-transfer',
+				method: 'POST',
+				body,
+			}),
+			invalidatesTags: ['User'],
+		}),
 	}),
 });
 
-export const { useSendMoneyMutation } = transferApi;
+export const { useSendMoneyMutation, useWalletTransferMutation } = transferApi;

@@ -4,8 +4,10 @@ import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import TableBox from '@/components/Box/TableBox';
 import { FaCaretRight } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import { useLoadUserQuery } from '@/redux/features/auth/authApi';
 
 const EarningTransfer = () => {
+	useLoadUserQuery();
 	const { user } = useSelector((state: any) => state.auth);
 	const [amount, setAmount] = useState(0);
 	return (

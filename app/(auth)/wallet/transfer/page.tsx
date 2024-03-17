@@ -7,6 +7,9 @@ import { useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import TableBox from '@/components/Box/TableBox';
 import Select from 'react-select';
+import { useWalletTransferMutation } from '@/redux/features/transfer/transferApi';
+import { fetchBaseQueryError } from '@/redux/services/helpers';
+import { useLoadUserQuery } from '@/redux/features/auth/authApi';
 
 const customStyles = {
 	control: (base: any, state: any) => ({
@@ -48,12 +51,14 @@ const options = [
 ];
 
 const WalletTransfer = () => {
+	useLoadUserQuery();
+	const [walletTransfer, { isLoading, isError, isSuccess, error }] =
+		useWalletTransferMutation();
 	const { user } = useSelector((state: any) => state.auth);
 	const [amount, setAmount] = useState<number>(0);
 	const [transferAmount, setTransferAmount] = useState<number>(0);
 	const [to_wallet, setToWallet] = useState<string>('');
 	const [from_wallet, setFromWallet] = useState<string>('');
-	const [isLoading, setIsLoading] = useState(false);
 
 	const options2 = [
 		{
@@ -85,19 +90,42 @@ const WalletTransfer = () => {
 
 	// handle convert
 	const handleConvert = () => {
-		console.log('value', to_wallet);
 		if (!amount || amount < 1) {
 			toast.error('Please enter amount');
 			return;
 		}
-		// check if user m_balance is less than 0.1
-		// const reamingBalance = Number(user?.m_balance - amount);
-		// if (reamingBalance < 0.1) {
-		// 	toast.error('Insufficient balance');
-		// 	return;
-		// }
-		console.log('ccc', to_wallet);
+		// check if user balance
+		if (from_wallet === 'main') {
+			if (amount > user?.m_balance) {
+				toast.error('Insufficient balance');
+				return;
+			}
+		} else if (from_wallet === 'earn') {
+			if (amount > user?.e_balance) {
+				toast.error('Insufficient balance');
+				return;
+			}
+		}
+
+		const data = {
+			from_wallet,
+			to_wallet: 'withdraw', // "withdraw" or "deposit
+			amount,
+			transferAmount,
+		};
+
+		console.log('data', data);
+		walletTransfer(data);
 	};
+
+	useEffect(() => {
+		if (isError) {
+			toast.error((error as fetchBaseQueryError).data.message);
+		}
+		if (isSuccess) {
+			toast.success('Transfer successful');
+		}
+	}, [isError, isSuccess]);
 
 	return (
 		<TableBox>
@@ -113,7 +141,7 @@ const WalletTransfer = () => {
 
 					<div className='space-y-4 '>
 						<div className='  '>
-							<div className='col-span-4 py-2 space-y-2 text-blue-gray-300'>
+							<div className='py-2 space-y-2 text-blue-gray-300'>
 								{/* Start From */}
 								<div className='grid grid-cols-7'>
 									<div className='col-span-2 '>
@@ -133,8 +161,11 @@ const WalletTransfer = () => {
 									</div>
 								</div>
 								{/* Icon  */}
-								<div className='flex items-center justify-around'>
-									<FaLongArrowAltDown className=' text-blue-gray-600' />
+								<div className='grid grid-cols-7'>
+									<div className='col-span-2'></div>
+									<div className=' col-span-5 flex items-center justify-center '>
+										<FaLongArrowAltDown className=' text-white' />
+									</div>
 								</div>
 								{/* Start To */}
 								<div className='grid grid-cols-7'>

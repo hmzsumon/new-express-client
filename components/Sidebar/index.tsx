@@ -272,10 +272,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
 													<li>
 														<Link
-															href='/wallet/transactions'
+															href='/fund/transfer'
 															className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
-																pathname === '/wallet/transactions' &&
-																'text-white'
+																pathname === '/fund/transfer' && 'text-white'
 															}`}
 														>
 															Fund Transfer
@@ -363,9 +362,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
 													<li>
 														<Link
-															href='/edit-wallet/deduct-money'
+															href='/wallet/e-transfer'
 															className={`group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
-																pathname === '/edit-wallet/deduct-money' &&
+																pathname === '/wallet/e-transfer' &&
 																'text-white'
 															}`}
 														>
@@ -446,12 +445,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 													<li>
 														<Link
 															href='/edit-wallet/add-money'
-															className={`first-letter:group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ${
+															className={`first-letter:group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white capitalize ${
 																pathname === '/edit-wallet/add-money' &&
 																'text-white'
 															}`}
 														>
-															Pool Earning
+															Leader Board-30
 														</Link>
 													</li>
 													<li>
@@ -462,7 +461,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 																'text-white'
 															}`}
 														>
-															Mining Earning
+															Leader Board-60
 														</Link>
 													</li>
 
@@ -486,7 +485,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 																'text-white'
 															}`}
 														>
-															Earning Report
+															Staking
 														</Link>
 													</li>
 												</ul>

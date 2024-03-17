@@ -1,288 +1,233 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { PulseLoader } from 'react-spinners';
-import Link from 'next/link';
-import {
-	useFindUserByEmailOrUsernameMutation,
-	useLoadUserQuery,
-} from '@/redux/features/auth/authApi';
-import { useSendMoneyMutation } from '@/redux/features/transfer/transferApi';
+import { FaLongArrowAltDown } from 'react-icons/fa';
+import { ClipLoader, PulseLoader } from 'react-spinners';
 import { useSelector } from 'react-redux';
-import { fetchBaseQueryError } from '@/redux/services/helpers';
-import Verification from '@/components/Verification/Verification';
+import { useRouter } from 'next/navigation';
+import TableBox from '@/components/Box/TableBox';
+import Select from 'react-select';
 
-const Transfer = () => {
-	useLoadUserQuery();
-	// send money mutation
-	const [
-		sendMoney,
-		{
-			isLoading: sendLoading,
-			isError: sendIsError,
-			isSuccess: sendIsSuccess,
-			error: sendError,
+const customStyles = {
+	control: (base: any, state: any) => ({
+		...base,
+		background: 'transparent',
+		// match with the menu
+		borderRadius: state.isFocused ? '3px 3px 0 0' : 3,
+		color: 'white',
+		borderColor: 'gray',
+		// Removes weird border around container
+		boxShadow: state.isFocused ? null : null,
+		'&:hover': {
+			// Overwrittes the different states of border
+			borderColor: 'blue',
 		},
-	] = useSendMoneyMutation();
+	}),
+	menu: (base: any) => ({
+		...base,
+		// override border radius to match the box
+		borderRadius: 0,
+		// kill the gap
+		marginTop: 0,
+	}),
+	menuList: (base: any) => ({
+		...base,
+		// kill the white space on first and last option
+		padding: 0,
+	}),
 
-	const { user: sender } = useSelector((state: any) => state.auth);
-	const [emailOrUsername, setEmailOrUsername] = useState('');
-	const [errorText, setErrorText] = useState<string>('');
-	const [findUser, setFindUser] = useState(false);
-	const [amount, setAmount] = useState(0);
-	const [recipient, setRecipient] = useState<any>({});
-	const [btnDisAbled, setBtnDisAbled] = useState<boolean>(false);
-	const [verify, setVerify] = useState<boolean>(false);
-	const [
-		findUserByEmailOrUsername,
-		{ data, isLoading, isError, isSuccess, error },
-	] = useFindUserByEmailOrUsernameMutation();
-	const { user } = data || {};
+	singleValue: (base: any) => ({
+		...base,
+		color: 'white',
+	}),
+};
 
-	// handle change
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const options = [
+	{ value: 'main', label: 'Main Balance' },
+	{ value: 'earn', label: 'Earn Balance' },
+];
+
+const WalletTransfer = () => {
+	const { user } = useSelector((state: any) => state.auth);
+	const [amount, setAmount] = useState<number>(0);
+	const [transferAmount, setTransferAmount] = useState<number>(0);
+	const [to_wallet, setToWallet] = useState<string>('');
+	const [from_wallet, setFromWallet] = useState<string>('');
+	const [isLoading, setIsLoading] = useState(false);
+
+	const options2 = [
+		{
+			value: 'chocolate',
+			label: `Withdraw : $${Number(user?.w_balance).toFixed(2)}`,
+		},
+	];
+
+	const [selectedOption, setSelectedOption] = useState(null);
+
+	// console.log('from_wallet', from_wallet);
+	// console.log('to_wallet', to_wallet);
+
+	// handle from wallet change
+	const handleFromWalletChange: any = (value: any) => {
+		setFromWallet(value);
+	};
+
+	// handle amount change
+	const handleAmountChange = (e: any) => {
 		const { value } = e.target;
-		setEmailOrUsername(value);
-		setErrorText('');
+		if (value < 0) {
+			toast.error('Amount cannot be negative');
+			return;
+		}
+		setAmount(value);
+		setTransferAmount(value - value * 0.1);
 	};
 
-	// handle change amount
-	const handleChangeAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const { value } = e.target;
-		setAmount(value ? parseInt(value) : 0);
+	// handle convert
+	const handleConvert = () => {
+		console.log('value', to_wallet);
+		if (!amount || amount < 1) {
+			toast.error('Please enter amount');
+			return;
+		}
+		// check if user m_balance is less than 0.1
+		// const reamingBalance = Number(user?.m_balance - amount);
+		// if (reamingBalance < 0.1) {
+		// 	toast.error('Insufficient balance');
+		// 	return;
+		// }
+		console.log('ccc', to_wallet);
 	};
-
-	// handle find user
-	const handleFindUser = () => {
-		if (!emailOrUsername) {
-			setErrorText('Email or Username is required');
-			return;
-		}
-
-		findUserByEmailOrUsername(emailOrUsername);
-	};
-
-	// handle transfer
-	const handleTransfer = () => {
-		// btn disabled
-		setBtnDisAbled(true);
-		// check if user is active
-		if (sender?.is_active === false) {
-			toast.error('Your account is not active, please active your account');
-			return;
-		}
-		if (!amount) {
-			setErrorText('Amount is required');
-			return;
-		}
-		if (amount < 1) {
-			setErrorText('Amount must be greater than or equal to 1');
-			return;
-		}
-
-		// check sender balance
-		if (sender?.m_balance < amount) {
-			setErrorText('Insufficient balance');
-			toast.error('Insufficient balance');
-			return;
-		}
-
-		const data = {
-			amount: Number(amount),
-			recipient_id: recipient._id,
-		};
-
-		sendMoney(data);
-	};
-
-	// after 10 seconds set btn disabled to false
-	useEffect(() => {
-		setTimeout(() => {
-			setBtnDisAbled(false);
-		}, 10000);
-
-		return () => {
-			setBtnDisAbled(false);
-		};
-	}, []);
-
-	useEffect(() => {
-		if (isSuccess) {
-			setFindUser(true);
-			setEmailOrUsername('');
-			setErrorText('');
-			setRecipient(user);
-		}
-
-		if (isError) {
-			toast.error((error as fetchBaseQueryError).data?.message);
-			setErrorText((error as fetchBaseQueryError).data?.message);
-		}
-	}, [isSuccess, isError, error]);
-
-	// useEffect for send money
-	useEffect(() => {
-		if (sendIsSuccess) {
-			toast.success('Transfer successful');
-			setFindUser(false);
-			setAmount(0);
-			setRecipient({});
-			setVerify(false);
-		}
-
-		if (sendIsError) {
-			toast.error((sendError as fetchBaseQueryError).data?.message);
-			setVerify(false);
-		}
-	}, [sendIsSuccess, sendIsError, sendError]);
 
 	return (
-		<>
-			<div className='p-2 '>
-				<div className='flex flex-col gap-9'>
-					{/* <!-- Contact Form --> */}
-					{!findUser && (
-						<div className='p-4 bg-transparent border rounded-sm border-stroke '>
-							<div className='border-b border-stroke py-4 px-6.5 '>
-								<h3 className='font-medium text-gray-100'>Fund Transfer</h3>
-							</div>
-							<div className='my-2 '>
-								<div className='p-6.5'>
-									<div className='mb-4.5 flex flex-col gap-6'>
-										<div className='w-full '>
-											<label className='mb-2.5 block text-gray-100 text-sm '>
-												Recipient Email or Username
-											</label>
-											<input
-												type='text'
-												placeholder='Enter Email or Username'
-												className={`w-full rounded border-[1.5px] ${
-													errorText
-														? 'border-red-500 text-red-500'
-														: 'border-stroke text-gray-100'
-												}  bg-transparent py-2 px-5 font-medium outline-none transition focus:border-primary active:border-primary`}
-												value={emailOrUsername}
-												onChange={(e) => handleChange(e)}
-											/>
-											{errorText && (
-												<small className='text-xs text-red-500'>
-													{errorText}
-												</small>
-											)}
-										</div>
+		<TableBox>
+			<div className=' px-2  md:h-auto withdraw-wrapper'>
+				<div className='relative py-6 mx-auto rounded-lg '>
+					<div className='flex items-center justify-between mb-4'>
+						<div className='ml-2 '>
+							<h1 className='text-xl font-bold  text-white '>
+								Wallet Transfer
+							</h1>
+						</div>
+					</div>
+
+					<div className='space-y-4 '>
+						<div className='  '>
+							<div className='col-span-4 py-2 space-y-2 text-blue-gray-300'>
+								{/* Start From */}
+								<div className='grid grid-cols-7'>
+									<div className='col-span-2 '>
+										<h2 className=' text-white'>From </h2>
 									</div>
 
-									<button
-										className='flex justify-center w-full p-3 mt-3 font-medium rounded bg-btn text-gray disabled:opacity-50 disabled:cursor-not-allowed'
-										onClick={handleFindUser}
-										disabled={isLoading || !emailOrUsername}
-									>
-										{isLoading ? (
-											<div className='flex items-center justify-center '>
-												<PulseLoader color='white' size={10} />
-											</div>
+									<div className='col-span-5 '>
+										<div className='w-full'>
+											<Select
+												defaultValue={selectedOption}
+												onChange={(e) => handleFromWalletChange(e?.value)}
+												options={options}
+												className=' bg-transparent'
+												styles={customStyles}
+											/>
+										</div>
+									</div>
+								</div>
+								{/* Icon  */}
+								<div className='flex items-center justify-around'>
+									<FaLongArrowAltDown className=' text-blue-gray-600' />
+								</div>
+								{/* Start To */}
+								<div className='grid grid-cols-7'>
+									<div className='col-span-2 '>
+										<h2 className=' text-white'>To </h2>
+									</div>
+
+									<div className='col-span-5 '>
+										<div className='w-full'>
+											<Select
+												defaultValue={options2[0]}
+												styles={customStyles}
+												isDisabled={true}
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{/* Start amount */}
+					<div className='my-6 '>
+						<div className=''>
+							<input
+								type='text'
+								color='blue'
+								placeholder='Enter Amount'
+								className=' bg-transparent rounded-md text-white w-full '
+								value={amount}
+								onChange={handleAmountChange}
+							/>
+
+							<small className='flex items-center justify-between px-1 mt-1 text-white'>
+								{from_wallet === 'main' && (
+									<span className=''>
+										Main Balance
+										{user?.m_balance >= 0 ? (
+											<span className='mx-1 text-blue-gray-300'>
+												{Number(user?.m_balance).toFixed(2)}
+											</span>
 										) : (
-											'Find User'
+											<PulseLoader size={10} color={'#fff'} />
 										)}
-									</button>
-									{sender?.is_active === false && (
-										<small className='text-center text-red-500'>
-											Your account is not active, please active your account{' '}
-											<Link
-												href='/activate'
-												className='text-blue-500 underline'
-											>
-												here.
-											</Link>
-										</small>
-									)}
-								</div>
-							</div>
+										USDT
+									</span>
+								)}
+								{from_wallet === 'earn' && (
+									<span className=''>
+										Earned Balance
+										{user?.m_balance >= 0 ? (
+											<span className='mx-1 text-blue-gray-300'>
+												{Number(user?.e_balance).toFixed(2)}
+											</span>
+										) : (
+											<PulseLoader size={10} color={'#fff'} />
+										)}
+										USDT
+									</span>
+								)}
+							</small>
 						</div>
-					)}
-
-					{/* <!-- Contact Info --> */}
-					{findUser && (
-						<div className='p-4 bg-transparent border rounded-sm border-stroke '>
-							<div className='border-b border-stroke py-4 px-6.5 '>
-								<h3 className='font-medium text-gray-100'>
-									Recipient Information
-								</h3>
-							</div>
-							<div className='my-2 space-y-2 list-none '>
-								<li className='flex items-center justify-between '>
-									<p>Name</p>
-									<p className='text-gray-500 '>{recipient?.full_name}</p>
-								</li>
-								<li className='flex items-center justify-between '>
-									<p>Email</p>
-									<p className='text-gray-500 '>{recipient?.email}</p>
-								</li>
-								{/* <li className='flex items-center justify-between '>
-									<p>Phone</p>
-									<p className='text-gray-500 '>{recipient?.phone}</p>
-								</li> */}
-							</div>
-							<hr className='my-3' />
-							<div className='my-2 '>
-								<div className='p-6.5'>
-									<div className='flex flex-col gap-4 '>
-										<div className='w-full '>
-											<label className='mb-2.5 block text-gray-100 text-xs '>
-												Amount
-											</label>
-											<input
-												type='text'
-												placeholder='Enter Amount'
-												className={`w-full rounded border-[1px] ${
-													errorText
-														? 'border-red-500 text-red-500'
-														: 'border-stroke text-gray-100'
-												}  bg-transparent py-2 px-5 font-medium outline-none transition focus:border-primary active:border-primary`}
-												value={amount}
-												onChange={(e) => handleChangeAmount(e)}
-											/>
-											{errorText && (
-												<small className='text-xs text-red-500'>
-													{errorText}
-												</small>
-											)}
-										</div>
-									</div>
-
-									{verify ? (
-										<button
-											className='flex justify-center w-full p-3 my-3 font-medium rounded bg-btn text-gray disabled:opacity-50 disabled:cursor-not-allowed'
-											onClick={handleTransfer}
-											disabled={
-												isLoading ||
-												!recipient ||
-												!amount ||
-												amount < 1 ||
-												sender?.is_active === false ||
-												btnDisAbled ||
-												!verify
-											}
-										>
-											{isLoading ? (
-												<div className='flex items-center justify-center '>
-													<PulseLoader color='white' size={10} />
-												</div>
-											) : (
-												'Transfer'
-											)}
-										</button>
-									) : (
-										<Verification setVerify={setVerify} />
-									)}
-								</div>
-							</div>
+					</div>
+					<hr className='my-2 border border-blue-gray-900 ' />
+					<div className='grid grid-cols-2 gap-4 '>
+						<div className='space-y-1 '>
+							<p className='text-xs text-white'>Convert Amount</p>
+							<p className='font-bold text-white'>
+								<span>{Number(transferAmount).toFixed(2)}</span> USDT
+							</p>
+							<p className='text-xs text-white'>
+								Transfer fee:{' '}
+								<span className='italic font-bold text-blue-gray-300'>10%</span>{' '}
+							</p>
 						</div>
-					)}
+
+						<div className='flex items-center justify-center '>
+							<button
+								className='w-full py-2 font-bold bg-btn rounded-sm text-white disabled:opacity-50 disabled:cursor-not-allowed '
+								disabled={!amount || amount < 1 || isLoading}
+								onClick={handleConvert}
+							>
+								{isLoading ? (
+									<ClipLoader size={20} color={'#fff'} />
+								) : (
+									<span>Transfer</span>
+								)}
+							</button>
+						</div>
+					</div>
 				</div>
 			</div>
-		</>
+		</TableBox>
 	);
 };
 
-export default Transfer;
+export default WalletTransfer;

@@ -67,7 +67,7 @@ const WalletReport = () => {
 			headerName: 'Description',
 			width: 350,
 			renderCell: (params: any) => (
-				<div className='flex items-center gap-2 text-xs'>
+				<div className='flex items-center gap-2 text-xs uppercase'>
 					<p>{params.row.description}</p>
 				</div>
 			),

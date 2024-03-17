@@ -315,7 +315,7 @@ body::-webkit-scrollbar-thumb {
 .box {
 	min-width: 0;
 	height: 100%;
-	color: black;
+	color: #fff;
 	word-wrap: break-word;
 	background-color: transparent;
 	background-clip: border-box;
@@ -406,3 +406,19 @@ body::-webkit-scrollbar-thumb {
 }
 
 /*End For Box Style */
+
+/* Countdown */
+@keyframes slideUp {
+	from {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.countdown-animation {
+	animation: slideUp 0.5s ease-out forwards;
+}

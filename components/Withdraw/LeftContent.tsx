@@ -120,7 +120,7 @@ const LeftContent = () => {
 
 	// set available amount
 	useEffect(() => {
-		const balance = user?.m_balance;
+		const balance = user?.w_balance;
 		if (balance < 0) {
 			setAvailable(0);
 		} else {
@@ -252,7 +252,7 @@ const LeftContent = () => {
 				<small className='flex items-center justify-between px-1 mt-1 text-blue-gray-400'>
 					<span className=''>
 						Available
-						{user?.m_balance ? (
+						{user?.w_balance ? (
 							<span className='mx-1 text-blue-gray-300'>
 								{Number(availableAmount).toFixed(2)}
 							</span>

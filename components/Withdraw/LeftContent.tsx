@@ -26,7 +26,7 @@ const customStyles = {
 	control: (provided: any) => ({
 		...provided,
 		backgroundColor: 'transparent',
-		border: '1px solid #4b5563',
+		// border: '1px solid #4b5563',
 		borderRadius: '0.375rem',
 	}),
 	option: (provided: any, state: any) => ({

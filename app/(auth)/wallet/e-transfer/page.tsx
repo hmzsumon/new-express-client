@@ -108,7 +108,7 @@ const EarningTransfer = () => {
 							<div className='mb-2 block'>
 								<Label
 									htmlFor='Enter-amount'
-									value='Repeat password'
+									value='Enter Amount'
 									className='text-white'
 								/>
 							</div>

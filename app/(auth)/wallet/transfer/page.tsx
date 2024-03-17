@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { fetchBaseQueryError } from '@/redux/services/helpers';
 import { FaLongArrowAltDown } from 'react-icons/fa';
 import { ClipLoader, PulseLoader } from 'react-spinners';
 import { useSelector } from 'react-redux';
@@ -8,7 +9,7 @@ import { useRouter } from 'next/navigation';
 import TableBox from '@/components/Box/TableBox';
 import Select from 'react-select';
 import { useWalletTransferMutation } from '@/redux/features/transfer/transferApi';
-import { fetchBaseQueryError } from '@/redux/services/helpers';
+
 import { useLoadUserQuery } from '@/redux/features/auth/authApi';
 
 const customStyles = {
@@ -114,7 +115,7 @@ const WalletTransfer = () => {
 			transferAmount,
 		};
 
-		console.log('data', data);
+		// console.log('data', data);
 		walletTransfer(data);
 	};
 

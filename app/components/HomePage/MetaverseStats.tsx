@@ -8,6 +8,7 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import waterimg from '@/public/assets/waterAnimation.gif';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const MetaverseStats = () => {
 	useEffect(() => {
@@ -79,13 +80,15 @@ const MetaverseStats = () => {
 						</div>
 					</a>
 				</div>
-				<button
-					data-aos='fade-up'
-					className='px-10 py-5 mt-4 rounded btn__bg font-OutFit '
-				>
-					Join Us Immediately
-					<LuMoveRight />
-				</button>
+				<Link href='/sign-up'>
+					<button
+						data-aos='fade-up'
+						className='px-10 py-5 mt-4 rounded btn__bg font-OutFit '
+					>
+						Join Us Immediately
+						<LuMoveRight />
+					</button>
+				</Link>
 			</div>
 			<div>
 				<Image src={waterimg} alt='' />

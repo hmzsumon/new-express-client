@@ -3,6 +3,7 @@ import { LuMoveRight } from 'react-icons/lu';
 import worldImg from '@/public/assets/world.png';
 import BannerImg from '@/public/assets/Express Life uk new logo file 01 1.png';
 import Image from 'next/image';
+import Link from 'next/link';
 const Banner = () => {
 	return (
 		<div className='flex items-center w-full py-24 overflow-x-hidden md:py-32 '>
@@ -22,9 +23,11 @@ const Banner = () => {
 							"Express Life: Unveiling Dreams Across 177 Horizons <br /> Our
 							Global Network of Your Journey, Your Success, Your Win!"{' '}
 						</p>
-						<button className='px-4 py-4 mt-4 rounded btn__bg font-OutFit '>
-							Join Us Immediately <LuMoveRight />
-						</button>
+						<Link href='/sign-up'>
+							<button className='px-4 py-4 mt-4 rounded btn__bg font-OutFit '>
+								Join Us Immediately <LuMoveRight />
+							</button>
+						</Link>
 					</div>
 					<div className=''>
 						<Image

@@ -9,6 +9,7 @@ import { BsRocketTakeoff } from 'react-icons/bs';
 import { RiExchangeDollarFill } from 'react-icons/ri';
 import weelImg from '@/public/assets/weel.png';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const NftPackages = () => {
 	useEffect(() => {
@@ -52,9 +53,11 @@ const NftPackages = () => {
 						</ul>
 					</div>
 					<div className='custom__bg__color relative top-[1px] rounded pt-10 nft_hover'>
-						<button className='px-6 py-5 mx-auto rounded btn__bg'>
-							Sign Up <LuMoveRight />
-						</button>
+						<Link href='/sign-up'>
+							<button className='px-6 py-5 mx-auto rounded btn__bg'>
+								Sign Up <LuMoveRight />
+							</button>
+						</Link>
 					</div>
 				</div>
 
@@ -81,9 +84,11 @@ const NftPackages = () => {
 						</ul>
 					</div>
 					<div className='custom__bg__color relative top-[1px] rounded pt-10 nft_hover'>
-						<button className='px-6 py-5 mx-auto rounded btn__bg'>
-							Sign Up <LuMoveRight />
-						</button>
+						<Link href='/sign-up'>
+							<button className='px-6 py-5 mx-auto rounded btn__bg'>
+								Sign Up <LuMoveRight />
+							</button>
+						</Link>
 					</div>
 				</div>
 
@@ -111,9 +116,11 @@ const NftPackages = () => {
 						</ul>
 					</div>
 					<div className='custom__bg__color relative top-[1px] rounded pt-10 nft_hover'>
-						<button className='px-6 py-5 mx-auto rounded btn__bg'>
-							Sign Up <LuMoveRight />
-						</button>
+						<Link href='/sign-up'>
+							<button className='px-6 py-5 mx-auto rounded btn__bg'>
+								Sign Up <LuMoveRight />
+							</button>
+						</Link>
 					</div>
 				</div>
 
@@ -141,9 +148,11 @@ const NftPackages = () => {
 						</ul>
 					</div>
 					<div className='custom__bg__color relative top-[1px] rounded pt-10 nft_hover'>
-						<button className='px-6 py-5 mx-auto rounded btn__bg'>
-							Sign Up <LuMoveRight />
-						</button>
+						<Link href='/sign-up'>
+							<button className='px-6 py-5 mx-auto rounded btn__bg'>
+								Sign Up <LuMoveRight />
+							</button>
+						</Link>
 					</div>
 				</div>
 			</div>

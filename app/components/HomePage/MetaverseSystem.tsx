@@ -8,6 +8,7 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import butterflyImg from '@/public/assets/butterfly.gif';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const MetaverseSystem = () => {
 	useEffect(() => {
@@ -95,9 +96,11 @@ const MetaverseSystem = () => {
 						</div>
 					</a>
 				</div>
-				<button className='px-5 py-5 mt-4 rounded btn__bg font-OutFit '>
-					Join Us Today <LuMoveRight />
-				</button>
+				<Link href='/sign-up'>
+					<button className='px-5 py-5 mt-4 rounded btn__bg font-OutFit '>
+						Join Us Today <LuMoveRight />
+					</button>
+				</Link>
 			</div>
 		</div>
 	);

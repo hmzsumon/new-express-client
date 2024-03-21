@@ -1,13 +1,65 @@
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa6';
-import Team1 from '@/public/assets/team1.jpg';
-import Team2 from '@/public/assets/team2.jpg';
-import Team3 from '@/public/assets/team3.jpg';
-import Team4 from '@/public/assets/team4.jpg';
-import Team5 from '@/public/assets/team5.jpg';
-import Team6 from '@/public/assets/team6.jpg';
-import Team7 from '@/public/assets/team7.jpg';
-import Team8 from '@/public/assets/team8.jpg';
+import Team1 from '@/public/assets/suzanne-redfern.jpg';
+import Team2 from '@/public/assets/anita-catherine-murray.jpg';
+import Team3 from '@/public/assets/akio-tanaka.jpg';
+import Team4 from '@/public/assets/nia-jomo.jpg';
+import Team5 from '@/public/assets/luca-rossi.jpg';
+import Team6 from '@/public/assets/ethan-reynolds.jpg';
+import Team7 from '@/public/assets/isabella-silva.jpg';
+import Team8 from '@/public/assets/liam-harper.jpg';
 import Image from 'next/image';
+import { FaUserTie } from 'react-icons/fa';
+
+const teamMembers = [
+	{
+		id: 1,
+		name: 'Suzanne Redfern',
+		position: 'CEO',
+		image: Team1,
+	},
+	{
+		id: 2,
+		name: 'Anita Catherine Murray',
+		position: 'Founder',
+		image: Team2,
+	},
+	{
+		id: 3,
+		name: 'Akio Tanaka',
+		position: 'Asia Continent Manager',
+		image: Team3,
+	},
+	{
+		id: 4,
+		name: 'Nia Jomo',
+		position: 'Africa Continent Manager',
+		image: Team4,
+	},
+	{
+		id: 5,
+		name: 'Luca Rossi',
+		position: 'Europe Continent Manager',
+		image: Team5,
+	},
+	{
+		id: 6,
+		name: 'Ethan Reynolds',
+		position: 'North America Continent Manager',
+		image: Team6,
+	},
+	{
+		id: 7,
+		name: 'Isabella Silva',
+		position: 'South America Continent Manager',
+		image: Team7,
+	},
+	{
+		id: 8,
+		name: 'Liam Harper',
+		position: 'Australia Continent Manager',
+		image: Team8,
+	},
+];
 
 const TeamMembers = () => {
 	return (
@@ -22,210 +74,36 @@ const TeamMembers = () => {
 					</p>
 				</div>
 				<div className='grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4'>
-					<div className='overflow-hidden cursor-pointer team__box'>
-						<Image
-							className='w-full duration-300 rounded-t team__img'
-							src={Team1}
-							alt=''
-						/>
-						<div className='relative justify-center flex-none p-5 text-center duration-300 rounded-b btn__bg team__info'>
-							<div className=''>
-								<h5 className='text-xl font-bold'>Suzanne Redfern</h5>
-								<p className='mt-2 text-sm text-slate-200'>CEO</p>
-								<div className='flex items-center justify-center gap-3 mt-5'>
-									<a href=''>
-										<FaFacebookF />
-									</a>
-									<a href=''>
-										<FaInstagram />
-									</a>
-									<a href=''>
-										<FaTwitter />
-									</a>
+					{teamMembers.map((member) => (
+						<div className='overflow-hidden cursor-pointer team__box'>
+							<div className=' bg-white duration-300 rounded-t team__img'>
+								<Image
+									className='w-full duration-300 rounded-t team__img'
+									src={member.image}
+									alt=''
+								/>
+							</div>
+							<div className='relative justify-center flex-none p-5 text-center duration-300 rounded-b btn__bg team__info'>
+								<div className=''>
+									<h5 className='text-xl font-bold'>{member.name}</h5>
+									<p className='mt-2 text-sm text-slate-200'>
+										{member.position}
+									</p>
+									<div className='flex items-center justify-center gap-3 mt-5'>
+										<a href=''>
+											<FaFacebookF />
+										</a>
+										<a href=''>
+											<FaInstagram />
+										</a>
+										<a href=''>
+											<FaTwitter />
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div className='overflow-hidden cursor-pointer team__box'>
-						<Image
-							className='w-full duration-300 rounded-t team__img'
-							src={Team2}
-							alt=''
-						/>
-						<div className='relative justify-center flex-none p-5 text-center duration-300 rounded-b btn__bg team__info'>
-							<div className=''>
-								<h5 className='text-xl font-bold'>Anita Catherine Murray</h5>
-								<p className='mt-2 text-sm text-slate-200'>Founder</p>
-								<div className='flex items-center justify-center gap-3 mt-5'>
-									<a href='#'>
-										<FaFacebookF />
-									</a>
-									<a href='#'>
-										<FaInstagram />
-									</a>
-									<a href='#'>
-										<FaTwitter />
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className='overflow-hidden cursor-pointer team__box'>
-						<Image
-							className='w-full duration-300 rounded-t team__img'
-							src={Team3}
-							alt=''
-						/>
-						<div className='relative justify-center flex-none p-5 text-center duration-300 rounded-b btn__bg team__info'>
-							<div className=''>
-								<h5 className='text-xl font-bold'>Akio Tanaka</h5>
-								<p className='mt-2 text-sm text-slate-200'>
-									Asia Continent Manager
-								</p>
-								<div className='flex items-center justify-center gap-3 mt-5'>
-									<a href='#'>
-										<FaFacebookF />
-									</a>
-									<a href='#'>
-										<FaInstagram />
-									</a>
-									<a href='#'>
-										<FaTwitter />
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className='overflow-hidden cursor-pointer team__box'>
-						<Image
-							className='w-full duration-300 rounded-t team__img'
-							src={Team4}
-							alt=''
-						/>
-						<div className='relative justify-center flex-none p-5 text-center duration-300 rounded-b btn__bg team__info'>
-							<div className=''>
-								<h5 className='text-xl font-bold'>Nia Jomo</h5>
-								<p className='mt-2 text-sm text-slate-200'>
-									Africa Continent Manager
-								</p>
-								<div className='flex items-center justify-center gap-3 mt-5'>
-									<a href=''>
-										<FaFacebookF />
-									</a>
-									<a href=''>
-										<FaInstagram />
-									</a>
-									<a href=''>
-										<FaTwitter />
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className='overflow-hidden cursor-pointer team__box'>
-						<Image
-							className='w-full duration-300 rounded-t team__img'
-							src={Team5}
-							alt=''
-						/>
-						<div className='relative justify-center flex-none p-5 text-center duration-300 rounded-b btn__bg team__info'>
-							<div className=''>
-								<h5 className='text-xl font-bold'>Luca Rossi</h5>
-								<p className='mt-2 text-sm text-slate-200'>
-									Europe Continent Manager
-								</p>
-								<div className='flex items-center justify-center gap-3 mt-5'>
-									<a href=''>
-										<FaFacebookF />
-									</a>
-									<a href=''>
-										<FaInstagram />
-									</a>
-									<a href=''>
-										<FaTwitter />
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className='overflow-hidden cursor-pointer team__box'>
-						<Image
-							className='w-full duration-300 rounded-t team__img'
-							src={Team6}
-							alt=''
-						/>
-						<div className='relative justify-center flex-none p-5 text-center duration-300 rounded-b btn__bg team__info'>
-							<div className=''>
-								<h5 className='text-xl font-bold'>Ethan Reynolds</h5>
-								<p className='mt-2 text-sm text-slate-200'>
-									North America Continent Manager
-								</p>
-								<div className='flex items-center justify-center gap-3 mt-5'>
-									<a href=''>
-										<FaFacebookF />
-									</a>
-									<a href=''>
-										<FaInstagram />
-									</a>
-									<a href=''>
-										<FaTwitter />
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className='overflow-hidden cursor-pointer team__box'>
-						<Image
-							className='w-full duration-300 rounded-t team__img'
-							src={Team7}
-							alt=''
-						/>
-						<div className='relative justify-center flex-none p-5 text-center duration-300 rounded-b btn__bg team__info'>
-							<div className=''>
-								<h5 className='text-xl font-bold'>Isabella Silva</h5>
-								<p className='mt-2 text-sm text-slate-200'>
-									South America Continent Manager
-								</p>
-								<div className='flex items-center justify-center gap-3 mt-5'>
-									<a href='#'>
-										<FaFacebookF />
-									</a>
-									<a href='#'>
-										<FaInstagram />
-									</a>
-									<a href='#'>
-										<FaTwitter />
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className='overflow-hidden cursor-pointer team__box'>
-						<Image
-							className='w-full duration-300 rounded-t team__img'
-							src={Team8}
-							alt=''
-						/>
-						<div className='relative justify-center flex-none p-5 text-center duration-300 rounded-b btn__bg team__info'>
-							<div className=''>
-								<h5 className='text-xl font-bold'>Liam Harper</h5>
-								<p className='mt-2 text-sm text-slate-200'>
-									Australia Continent Manager
-								</p>
-								<div className='flex items-center justify-center gap-3 mt-5'>
-									<a href='#'>
-										<FaFacebookF />
-									</a>
-									<a href='#'>
-										<FaInstagram />
-									</a>
-									<a href='#'>
-										<FaTwitter />
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
+					))}
 				</div>
 			</div>
 		</div>

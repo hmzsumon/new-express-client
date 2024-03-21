@@ -13,6 +13,13 @@ import Client1 from '@/public/assets/client1.png';
 import Client2 from '@/public/assets/client2.png';
 import Client3 from '@/public/assets/client3.png';
 import Client4 from '@/public/assets/client4.png';
+import Client5 from '@/public/assets/client5.png';
+import Client6 from '@/public/assets/client6.png';
+import Client7 from '@/public/assets/client7.png';
+import Client8 from '@/public/assets/client8.png';
+import Client9 from '@/public/assets/client9.png';
+import Client10 from '@/public/assets/client10.png';
+import Client11 from '@/public/assets/client11.png';
 import Image from 'next/image';
 
 const Customers = () => {
@@ -62,7 +69,7 @@ const Customers = () => {
 								<FaQuoteRight />
 							</p>
 
-							<Image className='w-20 mx-auto my-7' src={Client1} alt='' />
+							{/* <Image className='w-20 h-20 mx-auto my-7' src={Client1} alt='' /> */}
 							<h5>Carlos Rodriguez</h5>
 						</div>
 					</div>
@@ -79,7 +86,7 @@ const Customers = () => {
 								<FaQuoteRight />
 							</p>
 
-							<Image className='w-20 mx-auto my-7' src={Client2} alt='' />
+							{/* <Image className='w-20 mx-auto my-7' src={Client2} alt='' /> */}
 							<h5>Hiroshi Tanaka</h5>
 						</div>
 					</div>
@@ -96,7 +103,7 @@ const Customers = () => {
 								<FaQuoteRight />
 							</p>
 
-							<Image className='w-20 mx-auto my-7' src={Client1} alt='' />
+							{/* <Image className='w-20 mx-auto my-7' src={Client11} alt='' /> */}
 							<h5>Ahmed Salah</h5>
 						</div>
 					</div>
@@ -113,7 +120,7 @@ const Customers = () => {
 								<FaQuoteRight />
 							</p>
 
-							<Image className='w-20 mx-auto my-7' src={Client2} alt='' />
+							{/* <Image className='w-20 mx-auto my-7' src={Client6} alt='' /> */}
 							<h5>Matthias Müller</h5>
 						</div>
 					</div>
@@ -129,7 +136,7 @@ const Customers = () => {
 								<FaQuoteRight />
 							</p>
 
-							<Image className='w-20 mx-auto my-7' src={Client1} alt='' />
+							{/* <Image className='w-20 mx-auto my-7' src={Client7} alt='' /> */}
 							<h5>Nikhil Kapoor</h5>
 						</div>
 					</div>
@@ -146,7 +153,7 @@ const Customers = () => {
 								<FaQuoteRight />
 							</p>
 
-							<Image className='w-20 mx-auto my-7' src={Client2} alt='' />
+							{/* <Image className='w-20 mx-auto my-7' src={Client8} alt='' /> */}
 							<h5>Isabella Rossi</h5>
 						</div>
 					</div>
@@ -162,7 +169,7 @@ const Customers = () => {
 								<FaQuoteRight />
 							</p>
 
-							<Image className='w-20 mx-auto my-7' src={Client3} alt='' />
+							{/* <Image className='w-20 mx-auto my-7' src={Client3} alt='' /> */}
 							<h5>Lila Chen</h5>
 						</div>
 					</div>
@@ -179,7 +186,7 @@ const Customers = () => {
 								<FaQuoteRight />
 							</p>
 
-							<Image className='w-20 mx-auto my-7' src={Client4} alt='' />
+							{/* <Image className='w-20 mx-auto my-7' src={Client4} alt='' /> */}
 							<h5>Elena Kovač</h5>
 						</div>
 					</div>
@@ -196,7 +203,7 @@ const Customers = () => {
 								<FaQuoteRight />
 							</p>
 
-							<Image className='w-20 mx-auto my-7' src={Client4} alt='' />
+							{/* <Image className='w-20 mx-auto my-7' src={Client9} alt='' /> */}
 							<h5>Mariana Silva</h5>
 						</div>
 					</div>
@@ -213,7 +220,7 @@ const Customers = () => {
 								<FaQuoteRight />
 							</p>
 
-							<Image className='w-20 mx-auto my-7' src={Client3} alt='' />
+							{/* <Image className='w-20 mx-auto my-7' src={Client10} alt='' /> */}
 							<h5>Aisha Al-Farsi</h5>
 						</div>
 					</div>

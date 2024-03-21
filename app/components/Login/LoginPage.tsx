@@ -28,7 +28,7 @@ const LoginPage = (props: any) => {
 	const router = useRouter();
 	const params = useSearchParams();
 
-	console.log('Router: ', params);
+	// console.log('Router: ', params);
 
 	const [isChecked, setIsChecked] = useState<boolean>(false);
 	const [checkedError, setCheckedError] = useState<boolean>(false);
@@ -199,11 +199,11 @@ const LoginPage = (props: any) => {
 											Forgot password?
 										</span>
 									</Link>
-									<Link href='/register'>
+									<Link href='/sign-up'>
 										<span className='block my-1 text-xs text-center text-gray-500 rounded hover:text-gray-200'>
 											Don't have an account?
 											<span className='mx-1 underline text-cyan-700 '>
-												Register
+												Sign up
 											</span>
 										</span>
 									</Link>
